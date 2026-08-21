@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-serif-title {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-handwriting {
+    font-family: 'Dancing Script', 'Caveat', cursive;
+  }
+  .font-note {
+    font-family: 'Caveat', cursive;
+  }
+  .font-script {
+    font-family: 'Sacramento', cursive;
+  }
+  .font-sans-clean {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(244, 114, 182, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 114, 182, 0.6);
+}
+
+/* Candle flame animation */
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1) translate(-50%, -100%) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 10px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.6));
+  }
+  25% {
+    transform: scale(1.08, 0.95) translate(-50%, -100%) rotate(2deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(251, 146, 60, 0.9)) drop-shadow(0 0 24px rgba(239, 68, 68, 0.7));
+  }
+  50% {
+    transform: scale(0.92, 1.05) translate(-50%, -100%) rotate(-2deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 18px rgba(239, 68, 68, 0.5));
+  }
+  75% {
+    transform: scale(1.04, 0.98) translate(-50%, -100%) rotate(1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(251, 146, 60, 0.85)) drop-shadow(0 0 22px rgba(239, 68, 68, 0.65));
+  }
+}
+
+.candle-flame {
+  animation: flicker 1.8s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+/* Float pulse */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.gentle-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* Paper lined background */
+.paper-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(244, 114, 182, 0.2) 28px
+  );
+}
+
+.dark .paper-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(244, 114, 182, 0.1) 28px
+  );
+}
+

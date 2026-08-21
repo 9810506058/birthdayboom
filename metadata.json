@@ -1,0 +1,6 @@
+{
+  "name": "Our Story - Romantic Surprise",
+  "description": "An interactive, cinematic romantic surprise website celebrating love, memories, milestones, letters, games, and a special birthday tribute.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
