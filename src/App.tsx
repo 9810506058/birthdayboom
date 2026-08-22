@@ -8,6 +8,7 @@ import { romanticAudio } from './utils/audioSynth';
 import { FloatingHearts } from './components/FloatingHearts';
 import { CursorSparkles } from './components/CursorSparkles';
 import { ScrollProgress } from './components/ScrollProgress';
+import{SideBalloons}from'./components/Sideballon';
 import { EasterEggs } from './components/EasterEggs';
 import { InstructionsModal } from './components/InstructionsModal';
 
@@ -91,7 +92,8 @@ export default function App() {
     >
       {/* Background Floating Hearts */}
       <FloatingHearts isNight={isNight} />
-
+{/* Gentle Low-Opacity Falling Side Balloons */}
+<SideBalloons isNight={isNight} />
       {/* Cursor Sparkles Trail */}
       <CursorSparkles />
 

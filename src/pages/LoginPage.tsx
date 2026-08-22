@@ -112,17 +112,37 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
               </label>
 
               <div className="relative">
-                <input
-                  id="special-date-input"
-                  type="date"
-                  value={selectedDate}
-                  onChange={(e) => {
-                    setSelectedDate(e.target.value);
-                    setErrorMessage('');
-                  }}
-                  className="w-full px-4 py-3.5 rounded-2xl bg-rose-50/60 dark:bg-slate-800/80 border border-rose-200 dark:border-rose-800/80 text-slate-800 dark:text-slate-100 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-rose-400 transition-all cursor-pointer"
-                />
-              </div>
+  <input
+    id="special-date-input"
+    type="text"
+    inputMode="numeric"
+    placeholder="YYYY/MM/DD"
+    value={selectedDate}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, '');
+
+      let formatted = value;
+
+      if (value.length > 4) {
+        formatted = value.slice(0, 4) + '/' + value.slice(4);
+      }
+
+      if (value.length > 6) {
+        formatted =
+          value.slice(0, 4) +
+          '/' +
+          value.slice(4, 6) +
+          '/' +
+          value.slice(6, 8);
+      }
+
+      setSelectedDate(formatted);
+      setErrorMessage('');
+    }}
+    maxLength={10}
+    className="w-full px-4 py-3.5 rounded-2xl bg-rose-50/60 dark:bg-slate-800/80 border border-rose-200 dark:border-rose-800/80 text-slate-800 dark:text-slate-100 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-rose-400 transition-all"
+  />
+</div>
             </div>
 
             {/* Error feedback banner */}
