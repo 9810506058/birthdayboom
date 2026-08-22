@@ -6,8 +6,8 @@ export const FUTURE_BUCKET_DATA: BucketListItem[] = [
     title: 'Watch a quiet sunrise from a mountaintop',
     category: 'travel',
     icon: 'Sunrise',
-    completed: true,
-    notes: 'Checked off at Pine Ridge Peak! But let\'s do it 100 more times.'
+    completed: false,
+    notes: 'Mustang jana parxa'
   },
   {
     id: 'bucket-2',
@@ -15,7 +15,7 @@ export const FUTURE_BUCKET_DATA: BucketListItem[] = [
     category: 'travel',
     icon: 'Plane',
     completed: false,
-    notes: 'Tokyo or Italy dreaming with you ✈️'
+    notes: 'Europe Countries ✈️'
   },
   {
     id: 'bucket-3',
@@ -31,7 +31,7 @@ export const FUTURE_BUCKET_DATA: BucketListItem[] = [
     category: 'fun',
     icon: 'Camera',
     completed: true,
-    notes: 'Our camera roll is already 80% full, but keep them coming!'
+    notes: 'Your camera roll is already 80% full, but keep them coming!'
   },
   {
     id: 'bucket-5',
@@ -43,26 +43,19 @@ export const FUTURE_BUCKET_DATA: BucketListItem[] = [
   },
   {
     id: 'bucket-6',
-    title: 'Go to a midnight drive-in movie theater in an old pickup truck',
+    title: 'Go to a midnight drive-in movie theater',
     category: 'date',
     icon: 'Film',
     completed: false,
     notes: 'Beds in the truck bed, fairy lights, and endless snacks.'
   },
-  {
-    id: 'bucket-7',
-    title: 'Take cooking / pasta-making classes in Tuscany together',
-    category: 'date',
-    icon: 'UtensilsCrossed',
-    completed: false,
-    notes: 'So we stop burning pancakes at 2 AM 🍝'
-  },
+ 
   {
     id: 'bucket-8',
     title: 'Slow dance in our kitchen with no music playing',
     category: 'fun',
     icon: 'HeartHandshake',
-    completed: true,
+    completed:false,
     notes: 'A weekly sacred ritual.'
   },
   {

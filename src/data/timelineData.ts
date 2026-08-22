@@ -1,5 +1,5 @@
 import { TimelineEvent } from '../types';
-import { PHOTOS } from './photos';
+import { NANI_GALLERY_FILES, PHOTOS } from './photos';
 
 export const TIMELINE_DATA: TimelineEvent[] = [
   {
@@ -32,14 +32,14 @@ export const TIMELINE_DATA: TimelineEvent[] = [
   {
     id: 'timeline-4',
     number: '04',
-    title: 'The Crazy & Unserious Phase 😂',
-    date: 'April 07, 2024',
-    tag: 'Peak Chaos',
-    caption: 'When we realized our combined braincells equal about 1.5.',
+    title: 'Look how happy we are 😂',
+    date: 'November 19, 2024',
+    tag: 'Happy Happy',
+    caption: 'Hajur saga huda ta arkai khusi aauxa🥺.',
     description:
-      'From attempting to bake a 3-tier birthday cake at midnight that ended up flat as a pancake, to laughing in the grocery aisle over silly plushies.',
-    image: PHOTOS.heartFilter,
-    location: 'The Late Night Kitchen',
+      'Hajur saga huda ta arkai khusi aauxa🥺.',
+    image: '/images/nani/WhatsApp Image 2026-08-18 at 5.39.03 PM (1).jpeg',
+    location: 'Bhedetar Highway',
     accentEmoji: '🥞',
   },
   {
@@ -51,7 +51,7 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     caption: 'Still my favorite notification, best friend, and love.',
     description:
       'Every single day with you feels like a quiet blessing. Thank you for making my everyday life feel so warm, safe, exciting, and full of gentle magic.',
-    image: PHOTOS.polaroidE,
+    image:'images/nani/WhatsApp Image 2026-08-18 at 5.29.06 PM.jpeg',
     location: 'Everywhere With You',
     accentEmoji: '💖',
   },

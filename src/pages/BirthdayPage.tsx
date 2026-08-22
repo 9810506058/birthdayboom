@@ -114,18 +114,18 @@ export const BirthdayPage: React.FC<BirthdayPageProps> = ({ onNextSection }) => 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-serif-title text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 dark:text-white"
+          className="font-serif-title text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"
         >
-          Happy Birthday, My Love 🎂❤️
+          Happy Birthday, मेरी माया  🎂❤️
         </motion.h2>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="w-36 h-44 sm:w-44 sm:h-52 mx-auto rounded-[1.75rem] overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl shadow-rose-500/20 rotate-2"
+          className="w-50 h-50 sm:w-55 sm:h-55 mx-auto rounded-[1.75rem] overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl shadow-rose-500/20 "
         >
-          <img src={PHOTOS.heartFilter} alt={SITE_CONFIG.herName} className="w-full h-full object-cover" />
+          <img src={PHOTOS.cutienani} alt={SITE_CONFIG.herName} className="w-full h-full object-cover" />
         </motion.div>
 
         <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base font-sans max-w-lg mx-auto">
@@ -172,7 +172,7 @@ export const BirthdayPage: React.FC<BirthdayPageProps> = ({ onNextSection }) => 
               ))}
             </div>
             <span className="font-handwriting text-xl text-rose-500 dark:text-rose-200 font-bold relative z-10 pt-2">
-              For {SITE_CONFIG.herName}
+              Happy Birthday माया ❤️
             </span>
           </div>
 
@@ -191,7 +191,7 @@ export const BirthdayPage: React.FC<BirthdayPageProps> = ({ onNextSection }) => 
           {/* Cake Base Tier */}
           <div className="w-68 sm:w-80 h-16 rounded-2xl bg-gradient-to-r from-pink-300 via-rose-200 to-pink-300 dark:from-rose-900 dark:via-rose-800 dark:to-rose-900 border-2 border-rose-400 dark:border-rose-600 shadow-xl relative -mt-2 flex items-center justify-center">
             <span className="font-serif-title text-sm tracking-widest uppercase font-bold text-rose-700 dark:text-rose-200">
-              Queen of My Heart
+               My Queen👑
             </span>
           </div>
 
@@ -230,8 +230,7 @@ export const BirthdayPage: React.FC<BirthdayPageProps> = ({ onNextSection }) => 
               onClick={handleRelight}
               className="px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-rose-200 dark:border-rose-800 text-rose-600 dark:text-rose-400 text-xs font-medium flex items-center gap-1.5 shadow-sm hover:bg-rose-50 cursor-pointer"
             >
-              <RefreshCw className="w-3.5 h-3.5" />
-              <span>Relight Candles 🕯️</span>
+             
             </button>
           )}
         </div>
@@ -251,16 +250,14 @@ export const BirthdayPage: React.FC<BirthdayPageProps> = ({ onNextSection }) => 
               </div>
 
               <h3 className="font-serif-title text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-                Happy Birthday to My World
+                Happy Birthday meri pyari nani ❤️
               </h3>
 
-              <p className="font-handwriting text-2xl sm:text-3xl text-rose-600 dark:text-rose-300 leading-snug">
+              <p className="font-handwriting text-1xl sm:text-2xl text-rose-600 dark:text-rose-300 leading-snug">
                 "{SITE_CONFIG.mainBirthdayMessage}"
               </p>
 
-              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
-                May all your biggest dreams, little wishes, and secret hopes come true this year. I am so lucky to be the one holding your hand through it all.
-              </p>
+             
 
               <div className="pt-2">
                 <motion.button

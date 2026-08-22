@@ -8,14 +8,14 @@ export const LOVE_LETTERS_DATA: LoveLetter[] = [
     previewSnippet:
       'Whenever there are miles or hours between us, remember this...',
     date: 'For Whenever We Are Apart',
-    salutation: 'My Dearest Love,',
+    salutation: 'My Dearest Bebu,',
     body: [
       'If you are reading this, it probably means you are feeling the distance between us right now. I want you to close your eyes for three seconds and take a slow, deep breath.',
       'Remember how it feels when I hold your hand, or when we are laughing so hard at something nobody else understands. Distance is only physical — every single thought of mine is never too far away from you.',
       'I am probably checking my phone right now hoping your name pops up on my screen. Text me right after reading this so I can tell you how much I miss you too.',
     ],
     closing: 'Always and entirely yours,',
-    signature: 'Your Person ❤️',
+    signature: 'Your Sana❤️',
     postscript:
       'P.S. Sending you the tightest, warmest virtual hug right now.',
   },
@@ -29,14 +29,17 @@ export const LOVE_LETTERS_DATA: LoveLetter[] = [
     date: 'For Gray Skies',
     salutation: 'My Favorite Girl,',
     body: [
-      'I am so sorry today has been heavy on your heart. Please remember that one hard day does not define your life, your strength, or your worth.',
-      'You are one of the most resilient, compassionate, and extraordinary humans I have ever known. Even when you feel tired, fragile, or overwhelmed, you are handling so much more than you give yourself credit for.',
-      'Let yourself rest tonight. Drink some water, get cozy under your fluffiest blanket, and let me take care of the world for a little bit. Tomorrow will be softer, I promise.',
-    ],
+'Nani, I am really sorry hai, aaja timro din ali bad bhayo. Malai thaha cha, kahile kahi kura haru ekdam heavy huncha ani kasailai kei bhanna pani man lagdaina. Tara euta kura chai sadhai yaad gara hai — timro afno manxey timro sath ma cha.',
+'J kura le timilai hurt gareko cha, j kura le timilai overthink garaudai cha, j kura timro mann ma cha, please malai share gara. Sabai kura afai bhitra rakhera nabasa hai. K kura bhannu, kasari bhannu bhanera ni nasocha. Jasto cha, testai malai bhana. Ma timro kura sunna sadhai ready chu.',
+'Hami le sabai problem ekai choti solve garna nasakla, tara hami sangai basera solve garna sakchhau. Timro problem timro matra problem haina hai nani, aba timro problem ma pani mero ho. Timi royeu bhane timro aansu puchne manche ma hunchu, timi confused bhaye ma timro sath ma basera figure out garna help garchu.',
+'Timi mero agadi sadhai strong hunu pardaina. Timi tired huna sakchau, emotional huna sakchau, risau na sakchau, kei naboli chup lagera basna sakchau — ma timilai tyahi maya garchu. Timilai jasto feel bhairako cha, tesari nai feel garna deu afulai.',
+'So nani, aaja ko din naramro bhayo bhandai ma sabai kura naramro hudaina hai. Aaja ali heavy thiyo, aba rest gara. Bholi feri naya din huncha. Ani j aayepani, hami sangai face garumla. Timi eklo chainau, timro afno manche timro sath ma cha — always. ❤️'
+],
+
     closing: 'Here for you through every storm,',
     signature: 'With all my love ❤️',
     postscript:
-      "P.S. You are doing amazing. Don't forget to be gentle with yourself.",
+      "P.S. You are my brave girl.",
   },
 
   {
@@ -60,71 +63,109 @@ export const LOVE_LETTERS_DATA: LoveLetter[] = [
   },
 
   {
-    id: 'letter-just-because',
-    envelopeTitle: 'Open just because 💕',
-    icon: 'Heart',
-    previewSnippet:
-      'No special reason needed to remind you of this...',
-    date: 'A Random Tuesday Thought',
-    salutation: 'Hey Beautiful,',
-    body: [
-      "You don't need an anniversary, a holiday, or a special milestone for me to tell you how grateful I am to have you by my side.",
-      'Life gets busy and chaotic, but having you to come home to makes everything worth it. You turn ordinary grocery runs into adventures and boring evenings into memories I never want to forget.',
-      'Thank you for being my teammate, my confidante, my favorite comedian, and the love of my life.',
-    ],
-    closing: 'Just wanted to say I love you,',
-    signature: 'Always yours ❤️',
-  },
+  id: 'letter-just-because',
 
+  envelopeTitle: 'Open just because 💕',
+
+  icon: 'Heart',
+
+  previewSnippet:
+    'No special reason needed to remind you of this...',
+
+  date: 'A Random Tuesday Thought',
+
+  salutation: 'Hey Beautiful,',
+
+  body: [
+    'Nani, timilai maya garchu bhanera bhanna malai kunai special day, anniversary, birthday ya kei occasion nai chahincha jasto lagdaina. Kahile kahi ta bina kunai reason pani timilai kati dherai maya garchu bhanera bhanna man lagcha. ❤️',
+
+    'Life jati busy ra messy bhaye pani, timi mero life ma chau bhanne kura le nai sabai kura ali beautiful lagcha. Timi sanga ko sano sano moments haru pani mero lagi ekdam special huncha. Sangai kei nagari basda pani ramailo lagcha, random kura ma hasda pani memory bancha, ani timro sath ma normal day pani special jasto feel huncha.',
+
+    'Thank you nani, mero life ma aayera malai eti dherai happiness, love ra memories diyeko ma. Timi mero girlfriend matra haina, mero best friend, mero comfort person, mero teammate,mero wifey, mero favorite person hau. J kura pani timi sanga share garna man lagcha, ani timro sath ma ma afu jasto huna sakchu.',
+
+    ' I am really lucky to have you. Timilai paunu mero life ko sabai bhanda beautiful kura madhye euta ho. Kunai special reason chaina, bas timi yaad aayau ani timilai feri ekchoti bhandim jasto lagyo... I love you so much, nani. ❤️',
+  ],
+
+  closing: 'Bas timilai maya garchu bhanera bhanna man lagyo,',
+
+  signature: 'Always yours ❤️',
+},
+
+  
+{
+  id: 'letter-birthday',
+  envelopeTitle: 'Open on your birthday 🎂',
+  icon: 'Cake',
+  previewSnippet:
+    'A little birthday wish for the most beautiful girl in my world...',
+
+  date: 'Your Special Day ✨',
+
+  salutation: 'To My Birthday Girl, My Maya 👑❤️',
+
+  body: [
+    `Happiest Birthday, Maya ❤️🎂`,
+
+    `Aaja ko din mero lagi pani ekdam special cha, kina bhane aaja mero sabai bhanda special manche ko birthday ho. The day my favorite person came into this world. Honestly, timi janmeko din ko lagi ma life lai thank you bhanna chahanchu, because timi mero life ma aayera mero world nai ali different, ali beautiful banaidiyau. ❤️`,
+
+    `Maya, timi mero lagi just a girlfriend matra haina. Timi mero happiness hau, mero comfort hau, mero safe place hau, ani mero favorite person hau. Timro euta sano message le pani mero face ma smile aauna sakcha. Timro voice sunna paye pachi mero mood automatically better huncha. Timi sanga kura garda time kasari bitcha thaha nai hudaina. 🥹❤️`,
+
+    `Aaja timro birthday ma ma timilai duniya ko sabai bhanda thulo happiness wish garchu. Timro face ko yo beautiful smile kahile pani na harau. Jati thula dreams haru timro mann ma chan, sabai pura hun. Timile j chaheko chau, j banna chaheko chau, tyo sabai timile achieve gara. Life le timilai sadhai ramra reasons deos smile garna. ❤️✨`,
+
+    `Ani nani, life ma jasto situation aaye pani please afu mathi kahile doubt nagara. Timi sochya bhanda dherai strong, beautiful, kind ra special chau. Kahile kahi timilai afno value thaha nahuna sakcha, tara mero eyes ma timi ekdam precious chau. Never forget that. ❤️`,
+
+    `I hope yo birthday timro life ko sabai bhanda beautiful birthdays madhye euta hos. Dherai hasnu, dherai khusi hunu, ramailo garnu, ani aaja ko din pura enjoy garnu. Aaja timro day ho, so no sadness, no overthinking — only smiles, happiness and lots and lots of love. 🥺🎂❤️`,
+
+    `Ani euta sano wish mero pani cha...
+
+Aune harek birthday ma timro side ma basera timilai birthday wish garna paam. Timro candle sangai basera cake khana paam, timilai halka annoy garna paam, timro smile herna paam, ani harek barsa timilai feri feri "Happy Birthday, Maya" bhanna paam. ❤️`,
+
+    `Happiest Birthday once again, mero Maya. 🎂👑❤️
+
+Thank you for existing. Thank you for being you. Thank you for coming into my life and making it so much more beautiful.
+
+I hope today reminds you just how loved you are — not only today, but every single day.
+
+Keep smiling, keep shining, and keep being my beautiful girl. ❤️🫶
+
+I love you more than I can properly put into words, Maya. ❤️`
+  ],
+
+  closing: 'Happiest Birthday, My Love! 🎂❤️',
+
+  signature: 'Always yours, your biggest fan ❤️',
+
+  postscript:
+    'P.S. Aaja candle blow garda euta wish magnu hai... You know i know. 😌❤️'
+},
   {
-    id: 'letter-birthday',
-    envelopeTitle: 'Open on your birthday 🎂',
-    icon: 'Cake',
-    previewSnippet:
-      'A little letter for the most special girl on her special day...',
-    date: 'Your Special Day ✨',
-    salutation: 'To My Birthday Girl 👑,',
-    body: [
-      `Happy Birthday, Maya ❤️
+  id: 'letter-cant-sleep',
 
-Aaja ko din sachai nai mero lagi dherai important cha, because this is the day you were born. The day the person who would one day become such an important part of my life came into this world.`,
+  envelopeTitle: "Open when you can't sleep 🌙",
 
-      `Timi mero lucky charm hau. 🍀❤️ Hajur lai dekhesi mero sabai dukha harauxa, tension haru birsinchu, ani mero face ma automatically smile aaucha. Kati nai bad day bhaye pani, timro euta smile le mero pura mood change gardincha.`,
+  icon: 'Moon',
 
-      `Sometimes I honestly wonder how someone can become this important to me. Timi sanga बिताएको sano-sano moments haru pani mero lagi dherai precious chan. Timro euta message, euta call, euta smile — these little things mean more to me than you probably realize.`,
+  previewSnippet:
+    'For the nights when you cannot sleep and need a little love...',
 
-      `I don't know if I can perfectly explain what you mean to me, but I know one thing for sure: having you in my life is one of the most beautiful things that has ever happened to me. You make my ordinary days feel special just by being there.`,
+  date: 'Late Night Whispers',
 
-      `On your birthday, I just want to wish you all the happiness in the world. Timro face ma yo beautiful smile sadhai rahos. Timro dreams haru pura hun, timi sadhai healthy, happy ra successful rahau, and may life always give you reasons to smile.`,
+  salutation: 'Hey Nani,',
 
-      `And I hope that in all the birthdays that are yet to come, I get to be there beside you, making you smile, annoying you a little, celebrating you, and reminding you just how special you are to me. ❤️`,
+  body: [
+    `Nani, nidra lagirako chaina? Dherai sochera basirako chau bhane aba ali relax gara hai. Phone side ma rakha, eyes close gara ani imagine gara ma timilai hug garera timro side ma sutirako chu. ❤️`,
 
-      `Happy Birthday once again, Maya. 🎂❤️
+    `Bholi ko kura, aaja ko kura, j kura le timilai overthink garaudai cha, aile ko lagi sabai birsideu. Aaja ko raat timro rest ko lagi ho. Sabai kura bholi heramla, aile chai peacefully suta hai. 🌙`,
 
-Thank you for being my happiness, my comfort, and my lucky charm. I hope I can keep making you smile, just like you make me smile every single day.
+    `Eyes close gara ani hamro ramro memory haru madhye euta yaad gara. Hamro kura, hamro hasi, hamro sano sano moments... ani imagine gara ma timro side ma chu. 🥺❤️`,
 
-I love you, Maya. ❤️🫶`,
-    ],
-    closing: 'Happy Birthday, My Love! ❤️',
-    signature: 'Your biggest fan forever ❤️',
-    postscript:
-      'P.S. Make the biggest wish when you blow your candles... and I hope one of those wishes is me. 😌❤️',
-  },
+    `Timi eklo chainau hai nani. Ma yaha chu, timro lagi. Aba dherai nasocha, blanket bhitra cozy bhayera suta. Bholi fresh mind le uthnu parcha. ❤️`,
 
-  {
-    id: 'letter-cant-sleep',
-    envelopeTitle: "Open when you can't sleep 🌙",
-    icon: 'Moon',
-    previewSnippet:
-      'When the night feels too quiet and your mind is racing...',
-    date: 'Late Night Whispers',
-    salutation: 'Hey Sleepyhead,',
-    body: [
-      "Tossing and turning? Put your phone on night mode, rest your head on the pillow, and imagine me wrapping my arms around you right now.",
-      "Let go of tomorrow's to-do list. Let go of whatever overthinking is keeping your mind awake. The night is meant for peace.",
-      "Close your eyes and think of our favorite memory together. I'll see you in our dreams in just a few moments.",
-    ],
-    closing: 'Sweet dreams, my sweet girl,',
-    signature: 'Goodnight ❤️',
-  },
+    `Goodnight, mero sleepyhead. Ramro sanga suta hai. Sweet dreams  😌❤️`
+  ],
+
+  closing: 'Sweet dreams, my love, 🌙',
+
+  signature: 'Goodnight, Maya ❤️',
+}
 ];

@@ -13,16 +13,14 @@ import { InstructionsModal } from './components/InstructionsModal';
 
 // Pages / Sections
 import { LoginPage } from './pages/LoginPage';
+import { ReasonsPage } from './pages/ReasonsPage';
 import { HeroPage } from './pages/HeroPage';
 import { BirthdayPage } from './pages/BirthdayPage';
 import { SpecialBirthdayCardsPage } from './pages/SpecialBirthdayCardsPage';
 import { TimelinePage } from './pages/TimelinePage';
 import { MemoriesPage } from './pages/MemoriesPage';
 import { LoveLettersPage } from './pages/LoveLettersPage';
-import { ReasonsPage } from './pages/ReasonsPage';
-import { CoupleQuizPage } from './pages/CoupleQuizPage';
-import { FlipCardsPage } from './pages/FlipCardsPage';
-import { OurSongPage } from './pages/OurSongPage';
+
 import { FuturePage } from './pages/FuturePage';
 import { SecretMessagePage } from './pages/SecretMessagePage';
 import { FinalSurprisePage } from './pages/FinalSurprisePage';
@@ -171,15 +169,6 @@ export default function App() {
             {/* 20 Reasons Why I Love You */}
             <ReasonsPage />
 
-            {/* "This or That" Couple Quiz */}
-            <CoupleQuizPage />
-
-            {/* Memory Flip Cards */}
-            <FlipCardsPage />
-
-            {/* Our Song */}
-            <OurSongPage />
-
             {/* Future With You */}
             <FuturePage />
 
@@ -195,7 +184,7 @@ export default function App() {
                 <span>Crafted forever for</span>
                 <strong className="text-rose-500">{SITE_CONFIG.herName}</strong>
                 <span>by</span>
-                <strong className="text-rose-500">{SITE_CONFIG.myName}</strong>
+                <strong className="text-rose-500">Your's Favorite</strong>
                 <span>❤️</span>
               </p>
               <p className="text-[11px] opacity-75">

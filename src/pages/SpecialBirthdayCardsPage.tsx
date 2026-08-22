@@ -67,57 +67,9 @@ export const SpecialBirthdayCardsPage: React.FC = () => {
   };
 
   return (
-    <section id="birthday-cards" className="py-24 px-4 sm:px-6 relative z-10">
+    <section id="birthday-cards" className="py-6 px-2 sm:px-5 relative z-10">
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
-        <div className="text-center space-y-4">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-400 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-sm"
-          >
-            <Gift className="w-4 h-4 text-rose-500" />
-            <span>9 Birthday Surprises</span>
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif-title text-3xl sm:text-5xl font-bold text-slate-900 dark:text-white"
-          >
-            9 Sweet Messages Just for You 💌
-          </motion.h2>
-
-          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base font-sans max-w-xl mx-auto">
-            I prepared 9 special surprise cards for your birthday. Tap each card to pop it open and discover a little message to make you smile!
-          </p>
-
-          {/* Progress Tracker */}
-          <div className="flex items-center justify-center gap-3 pt-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-900/60 shadow-sm text-xs font-medium text-slate-700 dark:text-slate-200">
-              <span>Opened:</span>
-              <span className="font-bold text-rose-500">{openedCards.length} / 9</span>
-              {openedCards.length === 9 ? (
-                <span className="text-emerald-500 flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> All Unlocked! 🎉
-                </span>
-              ) : null}
-            </div>
-
-            {openedCards.length > 0 && (
-              <button
-                onClick={handleResetCards}
-                className="text-[11px] text-slate-400 hover:text-rose-500 flex items-center gap-1 transition-colors cursor-pointer"
-                title="Reset opened cards to replay"
-              >
-                <RotateCcw className="w-3 h-3" /> Re-seal all
-              </button>
-            )}
-          </div>
-        </div>
 
         {/* 9 Interactive Cards Grid (3x3) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -204,28 +156,14 @@ export const SpecialBirthdayCardsPage: React.FC = () => {
         </div>
 
         {/* All 9 Unlocked Special Banner */}
-        {openedCards.length === 9 && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white text-center space-y-3 shadow-2xl shadow-rose-500/20"
-          >
-            <div className="text-3xl">🎉 🎂 👑 ❤️ ✨</div>
-            <h3 className="font-serif-title text-2xl sm:text-3xl font-bold">
-              You’ve Unwrapped All 9 Birthday Cards!
-            </h3>
-            <p className="font-handwriting text-2xl sm:text-3xl text-rose-100 max-w-lg mx-auto">
-              "You are my whole heart, my happiest thought, and the prettiest birthday girl alive."
-            </p>
-          </motion.div>
-        )}
+      
       </div>
 
       {/* Pop-Up Modal Card View */}
       <AnimatePresence>
         {activeModalCard && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-md overflow-hidden"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-3 bg-black/70 backdrop-blur-md overflow-hidden"
             onClick={() => setActiveModalCard(null)}
           >
             <motion.div

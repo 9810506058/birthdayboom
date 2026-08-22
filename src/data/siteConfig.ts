@@ -29,7 +29,7 @@ export const SITE_CONFIG: SiteConfig = {
   
   // 🎂 Birthday Message
   mainBirthdayMessage:
-    'One more year of you being you... and somehow making my world better, brighter, and softer every single day.',
+    'Happy Birthday Maya ❤️🎂I hope this birthday brings you lots of happiness, beautiful memories, and everything you’ve been wishing for. 🥹❤️ I hope you always keep that beautiful smile on your face and never stop being the amazing person you are..',
   
   // 💌 Secret Message (Page 13)
   secretFinalMessage:
