@@ -17,8 +17,8 @@ export const SITE_CONFIG: SiteConfig = {
   // 🔐 The secret date needed to unlock the website (YYYY-MM-DD)
   // Default is October 14th (2023-10-14). You can change this to your special anniversary!
   specialDate: '2061-05-09',
-  specialDateFormatted: '2061-05-09',
-  specialDateHint: 'Hint: The Day Where my angel born',
+specialDateFormatted: '2061/05/09',
+specialDateHint: 'Hint: The day where my angel was born',
   birthdayDate: 'August ',
   anniversaryDate: '2023-12-17',
   relationshipStartDate: '2023-12-17',
