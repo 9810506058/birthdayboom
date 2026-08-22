@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Moon, Sun, Lock, Heart, Volume2, VolumeX } from 'lucide-react';
 import { SITE_CONFIG } from './data/siteConfig';
+import { romanticAudio } from './utils/audioSynth';
 
 // Components
 import { FloatingHearts } from './components/FloatingHearts';
 import { CursorSparkles } from './components/CursorSparkles';
 import { ScrollProgress } from './components/ScrollProgress';
-import { Navbar } from './components/Navbar';
 import { EasterEggs } from './components/EasterEggs';
 import { InstructionsModal } from './components/InstructionsModal';
 
@@ -14,6 +15,7 @@ import { InstructionsModal } from './components/InstructionsModal';
 import { LoginPage } from './pages/LoginPage';
 import { HeroPage } from './pages/HeroPage';
 import { BirthdayPage } from './pages/BirthdayPage';
+import { SpecialBirthdayCardsPage } from './pages/SpecialBirthdayCardsPage';
 import { TimelinePage } from './pages/TimelinePage';
 import { MemoriesPage } from './pages/MemoriesPage';
 import { LoveLettersPage } from './pages/LoveLettersPage';
@@ -34,7 +36,7 @@ export default function App() {
     return localStorage.getItem('our_story_night_mode') === 'true';
   });
 
-  const [activeSection, setActiveSection] = useState<string>('welcome');
+  const [isPlayingMusic, setIsPlayingMusic] = useState<boolean>(false);
   const [showInstructions, setShowInstructions] = useState<boolean>(false);
 
   useEffect(() => {
@@ -47,40 +49,12 @@ export default function App() {
     }
   }, [isNight]);
 
-  // Observer to update active section on scroll
   useEffect(() => {
-    if (!isUnlocked) return;
-
-    const sections = [
-      'welcome',
-      'birthday',
-      'timeline',
-      'gallery',
-      'funny',
-      'letters',
-      'reasons',
-      'game',
-      'flips',
-      'music',
-      'future',
-      'secret',
-      'final',
-    ];
-
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 200;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isUnlocked]);
+    const unsub = romanticAudio.subscribe((playing) => {
+      setIsPlayingMusic(playing);
+    });
+    return () => unsub();
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
@@ -99,6 +73,10 @@ export default function App() {
   const handleLockApp = () => {
     localStorage.removeItem('our_love_story_unlocked');
     setIsUnlocked(false);
+  };
+
+  const handleToggleMusic = () => {
+    romanticAudio.toggle();
   };
 
   const handleReplay = () => {
@@ -122,7 +100,7 @@ export default function App() {
       {/* Easter Egg Clickables & Floating Modals */}
       <EasterEggs herName={SITE_CONFIG.herName} />
 
-      {/* Boyfriend Customization Helper Modal */}
+      {/* Helper Modal */}
       <InstructionsModal
         isOpen={showInstructions}
         onClose={() => setShowInstructions(false)}
@@ -135,52 +113,80 @@ export default function App() {
           {/* Top Romantic Scroll Progress Indicator */}
           <ScrollProgress />
 
-          {/* Navigation Bar */}
-          <Navbar
-            herName={SITE_CONFIG.herName}
-            activeSection={activeSection}
-            onNavigate={scrollToSection}
-            isNight={isNight}
-            onToggleNight={() => setIsNight(!isNight)}
-            onOpenInstructions={() => setShowInstructions(true)}
-            onLockApp={handleLockApp}
-          />
+          {/* Minimal Floating Corner Utilities (Night mode, audio & lock, with NO navigation menu) */}
+          <div className="fixed top-4 right-4 z-40 flex items-center gap-2 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-rose-200/60 dark:border-rose-900/60 shadow-lg">
+            <button
+              onClick={handleToggleMusic}
+              className="p-1.5 rounded-full text-slate-600 dark:text-slate-300 hover:text-rose-500 transition-colors cursor-pointer"
+              title={isPlayingMusic ? 'Mute romantic audio' : 'Play romantic music'}
+            >
+              {isPlayingMusic ? (
+                <Volume2 className="w-4 h-4 text-rose-500 animate-pulse" />
+              ) : (
+                <VolumeX className="w-4 h-4" />
+              )}
+            </button>
+
+            <button
+              onClick={() => setIsNight(!isNight)}
+              className="p-1.5 rounded-full text-slate-600 dark:text-slate-300 hover:text-rose-500 transition-colors cursor-pointer"
+              title={isNight ? 'Switch to daylight theme' : 'Switch to night mode'}
+            >
+              {isNight ? (
+                <Sun className="w-4 h-4 text-amber-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-slate-600" />
+              )}
+            </button>
+
+            <button
+              onClick={handleLockApp}
+              className="p-1.5 rounded-full text-slate-400 hover:text-rose-500 transition-colors cursor-pointer"
+              title="Lock with secret passcode"
+            >
+              <Lock className="w-3.5 h-3.5" />
+            </button>
+          </div>
 
           {/* Main Continuous Romantic Journey */}
-          <main className="relative z-10 pt-16 sm:pt-20">
-            {/* Page 2: Welcome / Hero */}
+          <main className="relative z-10 pt-4 sm:pt-6">
+            {/* Welcome / Hero */}
             <HeroPage onEnterStory={() => scrollToSection('birthday')} />
 
-            {/* Page 3: Birthday Surprise */}
-            <BirthdayPage onNextSection={() => scrollToSection('timeline')} />
+            {/* Birthday Surprise Celebration & Candle Blow */}
+            <BirthdayPage onNextSection={() => scrollToSection('birthday-cards')} />
 
-            {/* Page 4: Our Timeline */}
+            {/* 9 Special Pop Birthday Cards */}
+            <SpecialBirthdayCardsPage />
+
+            {/* Our Timeline */}
             <TimelinePage />
 
-            {/* Page 5: Our Moments / Gallery */}
+            {/* Our Moments / Visual Love Story & Videos */}
             <MemoriesPage />
-            {/* Page 7: Love Letters */}
+
+            {/* Love Letters */}
             <LoveLettersPage />
 
-            {/* Page 8: 20 Reasons Why I Love You */}
+            {/* 20 Reasons Why I Love You */}
             <ReasonsPage />
 
-            {/* Page 9: "This or That" Couple Quiz */}
+            {/* "This or That" Couple Quiz */}
             <CoupleQuizPage />
 
-            {/* Page 10: Memory Flip Cards */}
+            {/* Memory Flip Cards */}
             <FlipCardsPage />
 
-            {/* Page 11: Our Song */}
+            {/* Our Song */}
             <OurSongPage />
 
-            {/* Page 12: Future With You */}
+            {/* Future With You */}
             <FuturePage />
 
-            {/* Page 13: Secret Message */}
+            {/* Secret Message */}
             <SecretMessagePage onNext={() => scrollToSection('final')} />
 
-            {/* Page 14: Final Surprise */}
+            {/* Final Surprise & Auto Fireworks */}
             <FinalSurprisePage onReplay={handleReplay} />
 
             {/* Footer */}

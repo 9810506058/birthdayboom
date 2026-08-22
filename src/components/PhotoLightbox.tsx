@@ -52,25 +52,39 @@ export const PhotoLightbox: React.FC<LightboxProps> = ({ photo, onClose }) => {
             <X className="w-5 h-5" />
           </button>
 
-          {/* Photo container */}
+          {/* Photo/Video container */}
           <div className="relative flex-1 bg-black flex items-center justify-center min-h-[280px] md:min-h-[480px] overflow-hidden group">
-            <img
-              src={photo.image}
-              alt={photo.title}
-              referrerPolicy="no-referrer"
-              className={`w-full h-full object-contain max-h-[60vh] md:max-h-[85vh] transition-transform duration-300 ${
-                isZoomed ? 'scale-150 cursor-zoom-out' : 'scale-100 cursor-zoom-in'
-              }`}
-              onClick={() => setIsZoomed(!isZoomed)}
-            />
+            {photo.mediaType === 'video' ? (
+              <video
+                src={photo.videoUrl || photo.image}
+                poster={photo.image}
+                controls
+                autoPlay
+                loop
+                playsInline
+                className="w-full h-full object-contain max-h-[60vh] md:max-h-[85vh]"
+              />
+            ) : (
+              <>
+                <img
+                  src={photo.image}
+                  alt={photo.title}
+                  referrerPolicy="no-referrer"
+                  className={`w-full h-full object-contain max-h-[60vh] md:max-h-[85vh] transition-transform duration-300 ${
+                    isZoomed ? 'scale-150 cursor-zoom-out' : 'scale-100 cursor-zoom-in'
+                  }`}
+                  onClick={() => setIsZoomed(!isZoomed)}
+                />
 
-            <button
-              onClick={() => setIsZoomed(!isZoomed)}
-              className="absolute bottom-4 right-4 p-2 rounded-full bg-black/50 text-white/80 hover:text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
-              title={isZoomed ? "Zoom out" : "Zoom in"}
-            >
-              {isZoomed ? <ZoomOut className="w-4 h-4" /> : <ZoomIn className="w-4 h-4" />}
-            </button>
+                <button
+                  onClick={() => setIsZoomed(!isZoomed)}
+                  className="absolute bottom-4 right-4 p-2 rounded-full bg-black/50 text-white/80 hover:text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                  title={isZoomed ? "Zoom out" : "Zoom in"}
+                >
+                  {isZoomed ? <ZoomOut className="w-4 h-4" /> : <ZoomIn className="w-4 h-4" />}
+                </button>
+              </>
+            )}
           </div>
 
           {/* Details side/bottom */}

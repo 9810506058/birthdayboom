@@ -37,8 +37,11 @@ export interface MemoryPhoto {
   caption: string;
   date: string;
   location?: string;
-  category: 'romantic' | 'travel' | 'date-night' | 'cute' | 'all';
+  category: 'romantic' | 'travel' | 'date-night' | 'cute' | 'all' | 'video';
   image: string;
+  mediaType?: 'photo' | 'video';
+  videoUrl?: string;
+  poster?: string;
   aspect?: 'tall' | 'wide' | 'square';
   polaroidNote?: string;
   heartsCount?: number;

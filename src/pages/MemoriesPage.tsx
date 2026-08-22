@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Image as ImageIcon, Heart, MapPin, Calendar, Maximize2, Sparkles, Filter } from 'lucide-react';
+import { Image as ImageIcon, Heart, MapPin, Calendar, Maximize2, Sparkles, Filter, Video, Play } from 'lucide-react';
 import { MEMORIES_DATA } from '../data/memoriesData';
 import { MemoryPhoto } from '../types';
 import { PhotoLightbox } from '../components/PhotoLightbox';
@@ -12,6 +12,8 @@ export const MemoriesPage: React.FC = () => {
   const filteredPhotos =
     activeCategory === 'all'
       ? MEMORIES_DATA
+      : activeCategory === 'video'
+      ? MEMORIES_DATA.filter((p) => p.mediaType === 'video' || p.category === 'video')
       : MEMORIES_DATA.filter((p) => p.category === activeCategory);
 
   return (
@@ -29,13 +31,14 @@ export const MemoriesPage: React.FC = () => {
           </h2>
 
           <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base font-sans max-w-xl mx-auto">
-            Snapshots of sunsets, spontaneous laughs, coffee dates, and quiet moments that mean the world to me.
+            Snapshots of sunsets, spontaneous laughs, coffee dates, and video moments that mean the world to me.
           </p>
 
           {/* Filter Chips */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
             {[
               { id: 'all', label: 'All Moments ✨' },
+              { id: 'video', label: 'Videos & Clips 🎥' },
               { id: 'romantic', label: 'Romantic 🌹' },
               { id: 'date-night', label: 'Date Nights 🍷' },
               { id: 'cute', label: 'Cute & Silly 🧸' },
@@ -69,7 +72,7 @@ export const MemoriesPage: React.FC = () => {
               onClick={() => setSelectedPhoto(photo)}
               className="bg-white dark:bg-slate-900 p-3 sm:p-4 rounded-3xl shadow-xl shadow-rose-500/5 border border-rose-200/60 dark:border-rose-900/40 cursor-pointer group relative flex flex-col justify-between"
             >
-              {/* Photo Frame */}
+              {/* Photo/Video Frame */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-800">
                 <img
                   src={photo.image}
@@ -79,16 +82,25 @@ export const MemoriesPage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
 
+                {/* Video Play indicator if video */}
+                {photo.mediaType === 'video' && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-12 h-12 rounded-full bg-rose-500/90 text-white flex items-center justify-center shadow-lg group-hover:scale-115 transition-transform">
+                      <Play className="w-5 h-5 fill-white ml-0.5" />
+                    </div>
+                  </div>
+                )}
+
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                   <div className="p-3 rounded-full bg-black/50 backdrop-blur-sm">
-                    <Maximize2 className="w-5 h-5" />
+                    {photo.mediaType === 'video' ? <Play className="w-5 h-5 fill-white" /> : <Maximize2 className="w-5 h-5" />}
                   </div>
                 </div>
 
                 {/* Date tag badge */}
                 <div className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-black/60 text-white backdrop-blur-md text-[11px] font-medium flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
+                  {photo.mediaType === 'video' ? <Video className="w-3 h-3 text-rose-300" /> : <Calendar className="w-3 h-3" />}
                   <span>{photo.date}</span>
                 </div>
               </div>
@@ -126,8 +138,9 @@ export const MemoriesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Fullscreen Photo Lightbox Modal */}
+      {/* Fullscreen Photo/Video Lightbox Modal */}
       <PhotoLightbox photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
     </section>
   );
 };
+

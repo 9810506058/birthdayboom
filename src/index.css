@@ -32,22 +32,27 @@
 }
 
 /* Custom scrollbars */
+.custom-scroll::-webkit-scrollbar,
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
+.custom-scroll::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track {
   background: rgba(244, 114, 182, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(244, 114, 182, 0.3);
   border-radius: 9999px;
 }
 
+.custom-scroll::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.35);
+  border-radius: 9999px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(244, 114, 182, 0.6);
+  background: rgba(244, 114, 182, 0.65);
 }
 
 /* Candle flame animation */

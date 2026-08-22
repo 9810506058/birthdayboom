@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, MailOpen, Heart, Sparkles, X, Feather } from 'lucide-react';
+import { Mail, MailOpen, Heart, Sparkles, X, Feather, ChevronLeft, ChevronRight } from 'lucide-react';
 import { LOVE_LETTERS_DATA } from '../data/lettersData';
 import { LoveLetter } from '../types';
 import confetti from 'canvas-confetti';
@@ -16,6 +16,20 @@ export const LoveLettersPage: React.FC = () => {
       origin: { y: 0.6 },
       colors: ['#f43f5e', '#fb7185', '#fda4af', '#fbcfe8'],
     });
+  };
+
+  const handleNextLetter = () => {
+    if (!selectedLetter) return;
+    const currentIndex = LOVE_LETTERS_DATA.findIndex((l) => l.id === selectedLetter.id);
+    const nextIndex = (currentIndex + 1) % LOVE_LETTERS_DATA.length;
+    setSelectedLetter(LOVE_LETTERS_DATA[nextIndex]);
+  };
+
+  const handlePrevLetter = () => {
+    if (!selectedLetter) return;
+    const currentIndex = LOVE_LETTERS_DATA.findIndex((l) => l.id === selectedLetter.id);
+    const prevIndex = (currentIndex - 1 + LOVE_LETTERS_DATA.length) % LOVE_LETTERS_DATA.length;
+    setSelectedLetter(LOVE_LETTERS_DATA[prevIndex]);
   };
 
   return (
@@ -83,64 +97,98 @@ export const LoveLettersPage: React.FC = () => {
       <AnimatePresence>
         {selectedLetter && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md overflow-y-auto"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md overflow-hidden"
             onClick={() => setSelectedLetter(null)}
           >
             <motion.div
-              initial={{ scale: 0.85, opacity: 0, rotate: -2 }}
-              animate={{ scale: 1, opacity: 1, rotate: 0 }}
-              exit={{ scale: 0.85, opacity: 0, rotate: 2 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="bg-[#fffbf0] dark:bg-[#1e1a24] max-w-2xl w-full rounded-3xl p-6 sm:p-12 shadow-2xl border border-rose-300/60 dark:border-rose-800/80 relative text-slate-900 dark:text-rose-50 paper-lines my-8 overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 26, stiffness: 320 }}
+              className="bg-[#fffdf7] dark:bg-[#1c1822] max-w-2xl w-full max-h-[92vh] sm:max-h-[88vh] rounded-3xl shadow-2xl border-2 border-rose-300 dark:border-rose-800/80 relative text-slate-900 dark:text-rose-50 flex flex-col overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedLetter(null)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-rose-200/50 dark:bg-rose-900/50 text-slate-700 dark:text-slate-200 hover:bg-rose-300 transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              {/* Pinned Letter Header */}
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-rose-200/80 dark:border-rose-900/60 bg-[#fffdf7]/95 dark:bg-[#1c1822]/95 backdrop-blur-sm shrink-0 z-10">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-rose-100 dark:bg-rose-950 flex items-center justify-center text-rose-500">
+                    <Feather className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-serif-title text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                      {selectedLetter.envelopeTitle}
+                    </h4>
+                    <span className="text-[11px] font-mono text-rose-500 dark:text-rose-400">
+                      {selectedLetter.date}
+                    </span>
+                  </div>
+                </div>
 
-              {/* Letter Header */}
-              <div className="flex items-center justify-between border-b border-rose-200 dark:border-rose-900/60 pb-4 mb-6">
-                <div className="flex items-center gap-2 text-xs font-semibold text-rose-500 uppercase tracking-wider">
-                  <Feather className="w-4 h-4" />
-                  <span>{selectedLetter.date}</span>
-                </div>
-                <div className="w-8 h-8 rounded-full bg-rose-100 dark:bg-rose-950 flex items-center justify-center text-rose-500">
-                  <Heart className="w-4 h-4 fill-rose-500" />
-                </div>
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedLetter(null)}
+                  className="p-2 rounded-full bg-rose-100/70 dark:bg-rose-900/50 text-slate-700 dark:text-slate-200 hover:bg-rose-200 dark:hover:bg-rose-800 transition-colors cursor-pointer"
+                  title="Close Letter"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
 
-              {/* Salutation */}
-              <h3 className="font-handwriting text-3xl sm:text-4xl text-rose-600 dark:text-rose-300 mb-6 font-bold">
-                {selectedLetter.salutation}
-              </h3>
+              {/* Scrollable Letter Body */}
+              <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-6 paper-lines custom-scroll">
+                {/* Salutation */}
+                <h3 className="font-handwriting text-3xl sm:text-4xl text-rose-600 dark:text-rose-300 font-bold">
+                  {selectedLetter.salutation}
+                </h3>
 
-              {/* Letter Body Paragraphs */}
-              <div className="space-y-4 font-note text-2xl sm:text-3xl text-slate-800 dark:text-rose-100 leading-relaxed">
-                {selectedLetter.body.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
-
-              {/* Closing & Signature */}
-              <div className="mt-8 pt-6 border-t border-rose-200 dark:border-rose-900/40 text-right space-y-1">
-                <p className="font-handwriting text-2xl text-slate-600 dark:text-slate-300">
-                  {selectedLetter.closing}
-                </p>
-                <p className="font-handwriting text-3xl font-bold text-rose-600 dark:text-rose-300">
-                  {selectedLetter.signature}
-                </p>
-              </div>
-
-              {/* Postscript if any */}
-              {selectedLetter.postscript && (
-                <div className="mt-6 pt-4 text-left font-note text-xl text-rose-600 dark:text-rose-400 italic">
-                  {selectedLetter.postscript}
+                {/* Letter Body Paragraphs */}
+                <div className="space-y-4 font-note text-2xl sm:text-3xl text-slate-800 dark:text-rose-100 leading-relaxed">
+                  {selectedLetter.body.map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
                 </div>
-              )}
+
+                {/* Closing & Signature */}
+                <div className="pt-6 border-t border-rose-200/80 dark:border-rose-900/40 text-right space-y-1">
+                  <p className="font-handwriting text-2xl text-slate-600 dark:text-slate-300">
+                    {selectedLetter.closing}
+                  </p>
+                  <p className="font-handwriting text-3xl sm:text-4xl font-bold text-rose-600 dark:text-rose-300">
+                    {selectedLetter.signature}
+                  </p>
+                </div>
+
+                {/* Postscript if any */}
+                {selectedLetter.postscript && (
+                  <div className="pt-4 text-left font-note text-xl sm:text-2xl text-rose-600 dark:text-rose-400 italic bg-rose-50/60 dark:bg-rose-950/40 p-4 rounded-2xl border border-rose-200/60 dark:border-rose-900/40">
+                    {selectedLetter.postscript}
+                  </div>
+                )}
+              </div>
+
+              {/* Bottom Sticky Letter Navigation Bar */}
+              <div className="p-3 sm:p-4 border-t border-rose-200/80 dark:border-rose-900/60 bg-[#fffdf7]/95 dark:bg-[#1c1822]/95 backdrop-blur-sm flex items-center justify-between shrink-0 text-xs">
+                <button
+                  onClick={handlePrevLetter}
+                  className="px-3.5 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950 hover:bg-rose-200 dark:hover:bg-rose-900 text-slate-700 dark:text-slate-200 font-medium flex items-center gap-1 transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  <span>Previous Letter</span>
+                </button>
+
+                <div className="flex items-center gap-1 text-rose-500 font-medium text-[11px] sm:text-xs">
+                  <Heart className="w-3.5 h-3.5 fill-rose-500" />
+                  <span>From My Heart</span>
+                </div>
+
+                <button
+                  onClick={handleNextLetter}
+                  className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 text-white font-medium flex items-center gap-1 shadow-md hover:shadow-lg transition-all cursor-pointer"
+                >
+                  <span>Next Letter</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </motion.div>
           </div>
         )}
